@@ -1,5 +1,14 @@
 package app.maikol.catcam;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.googlecode.androidannotations.annotations.EActivity;
+import com.googlecode.androidannotations.annotations.NoTitle;
+import com.googlecode.androidannotations.annotations.ViewById;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -10,7 +19,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
-import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
 import android.hardware.Camera.ShutterCallback;
@@ -20,7 +28,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -28,9 +35,9 @@ import android.view.Menu;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -38,16 +45,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.transform.Result;
-
-import app.maikol.catcam.util.SingleMediaScanner;
-
+@EActivity(R.layout.main)
+@NoTitle
 @TargetApi(Build.VERSION_CODES.GINGERBREAD)
 public class MainActivity extends Activity implements SurfaceHolder.Callback {
 
@@ -62,25 +61,39 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 
 	byte[] tempdata;
 	boolean myPreviewRunning = false;
+
 	private SurfaceHolder mySurfaceHolder;
+
+//	@ViewById(R.id.surface)
 	private SurfaceView mySurfaceView;
+
 	Button takePicture;
+
+//	@ViewById(R.id.btnSound)
 	Button playSound;
+
 	int volume;
 	Bitmap bm;
 
 	int photoIndex = 0;
 
+//	@ViewById(R.id.imgRightBanner)
 	ImageView imgRightBanner;
 
+//	@ViewById(R.id.imgbtnSound)
 	ImageButton imgBtnSound;
+
+//	@ViewById(R.id.imgButton)
 	ImageButton imgButton;
+
+//	@ViewById(R.id.btnSettings)
 	ImageButton btnSettings;
+
+//	@ViewById(R.id.btnGallery)
 	ImageButton btnGallery;
 
+//	@ViewById(R.id.progressBar)
 	private ProgressBar mProgress;
-
-	ProgressDialog dialog;
 
 	List<Integer> optionValues;
 
@@ -88,14 +101,16 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFormat(PixelFormat.TRANSLUCENT);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
 		setContentView(R.layout.main);
-		mySurfaceView = (SurfaceView) findViewById(R.id.surface);
+		
+		 mySurfaceView = (SurfaceView) findViewById(R.id.surface);
 		mySurfaceHolder = mySurfaceView.getHolder();
 		mySurfaceHolder.addCallback(this);
 		mySurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -139,7 +154,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 		};
 
 		myInflater = LayoutInflater.from(this);
-		mProgress = (ProgressBar) findViewById(R.id.progressBar);
+		 mProgress = (ProgressBar) findViewById(R.id.progressBar);
 		View rightBannerView = myInflater.inflate(R.layout.rightbanner, null);
 		View soundBanner = myInflater.inflate(R.layout.soundbanner, null);
 		View soundButtonsView = myInflater.inflate(R.layout.sound_background,
@@ -166,11 +181,11 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 
 		soundMenu = new SoundMenu(this);
 
-		playSound = (Button) findViewById(R.id.btnSound);
-		imgBtnSound = (ImageButton) findViewById(R.id.imgbtnSound);
-		imgButton = (ImageButton) findViewById(R.id.imgButton);
-		btnSettings = (ImageButton) findViewById(R.id.btnSettings);
-		btnGallery = (ImageButton) findViewById(R.id.btnGallery);
+		 playSound = (Button) findViewById(R.id.btnSound);
+		 imgBtnSound = (ImageButton) findViewById(R.id.imgbtnSound);
+		 imgButton = (ImageButton) findViewById(R.id.imgButton);
+		 btnSettings = (ImageButton) findViewById(R.id.btnSettings);
+		 btnGallery = (ImageButton) findViewById(R.id.btnGallery);
 		playSound.setVisibility(View.INVISIBLE);
 
 		btnGallery.setOnClickListener(new OnClickListener() {
@@ -184,7 +199,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 				ProgressBarTask pAsyn = new ProgressBarTask();
 				// pAsyn.execute();
 				Intent intent = new Intent(MainActivity.this,
-						CustomGallery.class);
+						CustomPagerActivity.class);
 				startActivity(intent);
 				// Set the transition -> method available from Android 2.0 and
 				// beyond
@@ -211,7 +226,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 			}
 		});
 
-		this.imgRightBanner = (ImageView) findViewById(R.id.imgRightBanner);
+		// this.imgRightBanner = (ImageView) findViewById(R.id.imgRightBanner);
 
 		imgButton.setOnClickListener(new OnClickListener() {
 			@Override

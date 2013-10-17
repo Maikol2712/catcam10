@@ -37,7 +37,6 @@
                 android:background="#77000000"
                 android:scaleType="fitEnd"
                 android:src="@drawable/btn2" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -66,37 +65,34 @@
                 android:background="#77000000"
                 android:scaleType="fitStart"
                 android:src="@drawable/btn4" />
-
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/soundmenu"
-            android:clickable="true">
+        android:id="@+id/soundmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
 
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/lblCurrentSound"
-                android:background="#DD000000"
-                android:textColor="#FFFFFF"/>
-
-        <app.maikol.catcam.lists.SoundListView
+        <GridView
             android:id="@+id/listViewSound"
-            android:layout_width="match_parent"
+            style="@null"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:background="#EE111111"
-            android:divider="@android:color/background_light"
-            android:dividerHeight="2dp">
-        </app.maikol.catcam.lists.SoundListView>
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:drawSelectorOnTop="false"
+            android:horizontalSpacing="0dp"
+            android:listSelector="@null"
+            android:numColumns="2"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="1dp" >
 
+        </GridView>
     </LinearLayout>
 
 </RelativeLayout>

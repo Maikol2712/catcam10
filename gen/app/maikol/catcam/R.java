@@ -28,73 +28,99 @@ public final class R {
         public static final int margin_bottom_60=0x7f060004;
     }
     public static final class drawable {
-        public static final int btn1=0x7f020000;
-        public static final int btn2=0x7f020001;
-        public static final int btn3=0x7f020002;
-        public static final int btn4=0x7f020003;
-        public static final int catcam2k=0x7f020004;
-        public static final int catcam496=0x7f020005;
-        public static final int cc_launcher=0x7f020006;
-        public static final int disparodemo=0x7f020007;
-        public static final int gallery=0x7f020008;
-        public static final int ic_launcher2=0x7f020009;
-        public static final int ico=0x7f02000a;
-        public static final int iconlast=0x7f02000b;
-        public static final int icono4=0x7f02000c;
-        public static final int patita=0x7f02000d;
-        public static final int pixel=0x7f02000e;
-        public static final int settings=0x7f02000f;
-        public static final int sound=0x7f020010;
+        public static final int basebutton=0x7f020000;
+        public static final int btn1=0x7f020001;
+        public static final int btn2=0x7f020002;
+        public static final int btn3=0x7f020003;
+        public static final int btn4=0x7f020004;
+        public static final int button1=0x7f020005;
+        public static final int button2=0x7f020006;
+        public static final int button3=0x7f020007;
+        public static final int button4=0x7f020008;
+        public static final int button_none=0x7f020009;
+        public static final int button_to_usermenu=0x7f02000a;
+        public static final int catcam2k=0x7f02000b;
+        public static final int catcam496=0x7f02000c;
+        public static final int cc_launcher=0x7f02000d;
+        public static final int disparodemo=0x7f02000e;
+        public static final int gallery=0x7f02000f;
+        public static final int ic_launcher2=0x7f020010;
+        public static final int ico=0x7f020011;
+        public static final int iconlast=0x7f020012;
+        public static final int icono4=0x7f020013;
+        public static final int patita=0x7f020014;
+        public static final int pixel=0x7f020015;
+        public static final int settings=0x7f020016;
+        public static final int sound=0x7f020017;
+        public static final int user_button1=0x7f020018;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f0a000a;
+        public static final int LinearLayout1=0x7f0a0010;
         public static final int RelativeLayout1=0x7f0a0000;
+        public static final int ScrollView1=0x7f0a0009;
         public static final int TextView1=0x7f0a0001;
-        public static final int action_settings=0x7f0a001f;
-        public static final int btnGallery=0x7f0a0012;
+        public static final int btnGallery=0x7f0a0018;
         public static final int btnMakePhoto=0x7f0a0002;
         public static final int btnOptions=0x7f0a0003;
-        public static final int btnSettings=0x7f0a0011;
-        public static final int btnSound=0x7f0a001d;
-        public static final int btnSound1=0x7f0a0014;
-        public static final int btnSound2=0x7f0a0017;
-        public static final int btnSound3=0x7f0a0015;
-        public static final int btnSound4=0x7f0a0018;
+        public static final int btnSettings=0x7f0a0017;
+        public static final int btnSound=0x7f0a0024;
+        public static final int btnSound1=0x7f0a001a;
+        public static final int btnSound2=0x7f0a001d;
+        public static final int btnSound3=0x7f0a001b;
+        public static final int btnSound4=0x7f0a001e;
+        public static final int gridImage=0x7f0a0008;
         public static final int imageView=0x7f0a0004;
-        public static final int imgButton=0x7f0a0010;
-        public static final int imgRightBanner=0x7f0a000f;
-        public static final int imgbtnSound=0x7f0a001c;
-        public static final int lblCurrentSound=0x7f0a001a;
-        public static final int lblCurrentValue=0x7f0a000d;
-        public static final int lblOptionTitle=0x7f0a000c;
-        public static final int lblOptionValue=0x7f0a000b;
-        public static final int linearLayout1=0x7f0a0013;
-        public static final int linearLayout3=0x7f0a0016;
-        public static final int listView2=0x7f0a000e;
-        public static final int listViewSound=0x7f0a001b;
-        public static final int menu_settings=0x7f0a001e;
-        public static final int optionList=0x7f0a0008;
+        public static final int imageView2=0x7f0a0025;
+        public static final int imagedetails_image=0x7f0a000a;
+        public static final int imagedetails_txt_description=0x7f0a000c;
+        public static final int imagedetails_txt_username=0x7f0a000b;
+        public static final int imgButton=0x7f0a0016;
+        public static final int imgRightBanner=0x7f0a0015;
+        public static final int imgbtnSound=0x7f0a0023;
+        public static final int lblCurrentValue=0x7f0a0013;
+        public static final int lblOptionTitle=0x7f0a0012;
+        public static final int lblOptionValue=0x7f0a0011;
+        public static final int linearLayout1=0x7f0a0019;
+        public static final int linearLayout3=0x7f0a001c;
+        public static final int listView2=0x7f0a0014;
+        public static final int listViewSound=0x7f0a0020;
+        public static final int menu_settings=0x7f0a002b;
+        public static final int optionList=0x7f0a000d;
+        public static final int pager=0x7f0a000f;
         public static final int progressBar=0x7f0a0006;
         public static final int scrollImages=0x7f0a0005;
-        public static final int soundmenu=0x7f0a0019;
-        public static final int surface=0x7f0a0009;
+        public static final int scrollImagesLayout=0x7f0a002c;
+        public static final int soundName=0x7f0a0022;
+        public static final int soundmenu=0x7f0a001f;
+        public static final int soundoptionbutton=0x7f0a0021;
+        public static final int surface=0x7f0a000e;
         public static final int textView=0x7f0a0007;
+        public static final int txtUsername=0x7f0a002a;
+        public static final int usermenu_my_images=0x7f0a0029;
+        public static final int usermenu_new_photos_button=0x7f0a0028;
+        public static final int usermenu_to_left=0x7f0a0026;
+        public static final int usermenu_to_right=0x7f0a0027;
     }
     public static final class layout {
         public static final int activity_menu=0x7f030000;
         public static final int gallery=0x7f030001;
         public static final int gallery_item=0x7f030002;
-        public static final int list_menu=0x7f030003;
-        public static final int main=0x7f030004;
-        public static final int option_value_item=0x7f030005;
-        public static final int options_menu_item=0x7f030006;
-        public static final int popup_menu=0x7f030007;
-        public static final int rightbanner=0x7f030008;
-        public static final int second=0x7f030009;
-        public static final int settings=0x7f03000a;
-        public static final int sound_background=0x7f03000b;
-        public static final int soundbanner=0x7f03000c;
-        public static final int third=0x7f03000d;
+        public static final int image_gallery_grid=0x7f030003;
+        public static final int imagedetails=0x7f030004;
+        public static final int list_menu=0x7f030005;
+        public static final int main=0x7f030006;
+        public static final int mainpager=0x7f030007;
+        public static final int option_value_item=0x7f030008;
+        public static final int options_menu_item=0x7f030009;
+        public static final int popup_menu=0x7f03000a;
+        public static final int rightbanner=0x7f03000b;
+        public static final int second=0x7f03000c;
+        public static final int settings=0x7f03000d;
+        public static final int sound_background=0x7f03000e;
+        public static final int sound_menu_option=0x7f03000f;
+        public static final int soundbanner=0x7f030010;
+        public static final int third=0x7f030011;
+        public static final int userdetails=0x7f030012;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
@@ -135,7 +161,7 @@ public final class R {
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PicGallery_android_galleryItemBackground app.maikol.catcam:android_galleryItemBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PicGallery_android_galleryItemBackground android:galleryItemBackground}</code></td><td></td></tr>
            </table>
            @see #PicGallery_android_galleryItemBackground
          */
@@ -143,9 +169,9 @@ public final class R {
             0x0101004c
         };
         /**
-          <p>This symbol is the offset where the {@link app.maikol.catcam.R.attr#android_galleryItemBackground}
+          <p>This symbol is the offset where the {@link android.R.attr#galleryItemBackground}
           attribute's value can be found in the {@link #PicGallery} array.
-          @attr name android:android_galleryItemBackground
+          @attr name android:galleryItemBackground
         */
         public static final int PicGallery_android_galleryItemBackground = 0;
     };

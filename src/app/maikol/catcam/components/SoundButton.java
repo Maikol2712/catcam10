@@ -13,18 +13,28 @@ import android.widget.TextView;
 import app.maikol.catcam.R;
 import app.maikol.catcam.SoundMenu;
 import app.maikol.catcam.lists.SoundListView;
+import app.maikol.catcam.model.Sound;
 
 public class SoundButton extends ImageButton {
 
-	int soundId;
+	Sound sound;
 
-    String songLabel;
+	public Integer index;
 
 	public SoundButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		if (this.getId() == R.id.btnSound1)
+			this.index = 1;
+		if (this.getId() == R.id.btnSound2)
+			this.index = 2;
+		if (this.getId() == R.id.btnSound3)
+			this.index = 3;
+		if (this.getId() == R.id.btnSound4)
+			this.index = 4;
+
 		final Context c = context;
-		soundId = R.raw.send;
-        songLabel = SoundMenu.SOUNDS.BIP_BIP.getLabel();
+		// soundId = R.raw.send;
+		// songLabel = SoundMenu.SOUNDS.BIP_BIP.getLabel();
 		this.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -32,7 +42,7 @@ public class SoundButton extends ImageButton {
 				if (SoundButton.this != null) {
 					try {
 						MediaPlayer mp = MediaPlayer.create(c,
-								SoundButton.this.getSoundId());
+								SoundButton.this.sound.getSoundId());
 						if (mp != null) {
 
 							mp.start();
@@ -42,12 +52,12 @@ public class SoundButton extends ImageButton {
 
 							@Override
 							public void onCompletion(MediaPlayer mp) {
-								 mp.release();
+								mp.release();
 							}
 
 						});
 					} catch (Exception e) {
-						
+
 					}
 				}
 
@@ -55,36 +65,29 @@ public class SoundButton extends ImageButton {
 		});
 
 	}
-	
-	public void setLongClickListener(final SoundListView listView, final LinearLayout menulayout,final Activity a){
+
+	public void setLongClickListener(final SoundMenu soundMenu,
+			final LinearLayout menulayout, final Activity a) {
 		this.setOnLongClickListener(new OnLongClickListener() {
-			
+
 			@Override
 			public boolean onLongClick(View v) {
-                menulayout.setVisibility(View.VISIBLE);
-				listView.setSoundButton(SoundButton.this);
-
-                TextView lblCurrentSound = (TextView) a.findViewById(R.id.lblCurrentSound);
-                lblCurrentSound.setText("CURRENT: " + SoundButton.this.getSoundLabel());
+				menulayout.setVisibility(View.VISIBLE);
+				soundMenu.setSoundButton(SoundButton.this);
 				return true;
 			}
 		});
 	}
 
-	public int getSoundId() {
-		return soundId;
+	public Sound getSound() {
+		return this.sound;
 	}
 
-	public void setSound(int soundId, String label) {
-		this.soundId = soundId;
-        this.songLabel = label;
+	public void setSound(Sound sound) {
+		this.sound = sound;
 	}
 
 	public SoundButton(Context context) {
 		super(context);
 	}
-
-    public String getSoundLabel(){
-        return this.songLabel;
-    }
 }

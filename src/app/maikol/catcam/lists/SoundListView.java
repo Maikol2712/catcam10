@@ -1,12 +1,11 @@
 package app.maikol.catcam.lists;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.ListView;
+import android.widget.GridView;
 import app.maikol.catcam.components.SoundButton;
 
-public class SoundListView extends ListView{
+public class SoundListView{
 
+	GridView gridView;
 	SoundButton soundButton;
 	
 	public SoundButton getSoundButton() {
@@ -16,13 +15,17 @@ public class SoundListView extends ListView{
 	public void setSoundButton(SoundButton soundButton) {
 		this.soundButton = soundButton;
 	}
+	
+	public SoundListView(GridView gridView) {
+		this.gridView = gridView;
+	}
 
-	public SoundListView(Context context) {
-		super(context);
+	public void setGridView(GridView gv){
+		this.gridView = gv;
 	}
 	
-	public SoundListView(Context context,AttributeSet attr) {
-		super(context,attr);
+	public GridView getGridView(){
+		return this.gridView;
 	}
 
 }

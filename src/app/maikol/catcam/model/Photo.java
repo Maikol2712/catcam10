@@ -8,14 +8,18 @@ import java.io.File;
 /**
  * Created by Miguel on 6/06/13.
  */
-public class Photo {
+public class Photo extends GenericPhoto {
 
     public File file;
-    public Bitmap bm;
 
     public Photo(File file){
         this.file = file;
-        bm = decodeSampledBitmapFromUri(file.getAbsolutePath(), 220, 220);
+        bitmap = decodeSampledBitmapFromUri(file.getAbsolutePath(), 220, 220);
+    }
+    
+    public Photo(File file, int width, int height){
+        this.file = file;
+//        bm = decodeSampledBitmapFromUri(file.getAbsolutePath(), width, height);
     }
 
     public Bitmap decodeSampledBitmapFromUri(String path, int reqWidth, int reqHeight) {
