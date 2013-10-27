@@ -14,7 +14,11 @@ public class Photo extends GenericPhoto {
 
     public Photo(File file){
         this.file = file;
+        try{
         bitmap = decodeSampledBitmapFromUri(file.getAbsolutePath(), 220, 220);
+        }catch(Exception e){
+        	
+        }
     }
     
     public Photo(File file, int width, int height){

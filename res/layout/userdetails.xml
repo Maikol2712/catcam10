@@ -68,6 +68,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Username"
+        android:imeOptions="actionDone"
         android:inputType="text"
         android:textColorHint="#FFFFFF" >
 

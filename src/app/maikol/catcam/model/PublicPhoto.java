@@ -1,15 +1,15 @@
 package app.maikol.catcam.model;
 
-import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 
 public class PublicPhoto extends GenericPhoto {
 	String id;
 	String user;
 	String description;
+	List<Comment> commentList = new ArrayList<Comment>();
 	boolean favorite;
 	
 	public PublicPhoto(String imageId, String image64, String user, String description) {
@@ -59,5 +59,13 @@ public class PublicPhoto extends GenericPhoto {
 
 	public void setFavorite(boolean favorite) {
 		this.favorite = favorite;
+	}
+
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
 	}
 }

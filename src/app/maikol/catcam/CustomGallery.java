@@ -31,6 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import app.maikol.catcam.delegate.RemoteImageDelegate;
+import app.maikol.catcam.model.Comment;
 import app.maikol.catcam.model.Photo;
 import app.maikol.catcam.model.PublicPhoto;
 import app.maikol.catcam.util.HttpConnectionManager;
@@ -255,6 +256,27 @@ public class CustomGallery extends Fragment implements RemoteImageDelegate{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void didGetComment(int i, Comment comment) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void didFailGetComment(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+    public void setMenuVisibility(final boolean visible) {
+        if (!visible) {
+        	for (Photo p : photos){
+        		p.getBitmap().recycle();
+        	}
+        }
+    }
 
 	// @Override
 	// protected void onResume() {

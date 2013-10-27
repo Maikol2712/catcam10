@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -13,19 +14,65 @@
             android:id="@+id/imagedetails_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:maxHeight="300dp"
+            android:maxWidth="300dp"
+            android:scaleType="fitXY"
             android:src="@drawable/basebutton" />
 
         <TextView
             android:id="@+id/imagedetails_txt_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/imagedetails_image"
+            android:layout_centerHorizontal="true"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/imagedetails_txt_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/imagedetails_txt_username"
+            android:layout_centerHorizontal="true"
+            android:maxLines="15"
             android:text="TextView" />
-    </LinearLayout>
+
+        <EditText
+            android:id="@+id/imagedetails_comment_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imagedetails_txt_description"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:inputType="textMultiLine" >
+
+            <requestFocus />
+        </EditText>
+
+        <LinearLayout
+            android:id="@+id/imagedetails_comment_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imagedetails_comment_input"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#444444"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/imagedetails_comment_button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imagedetails_comment_input"
+            android:layout_alignTop="@+id/imagedetails_comment_input"
+            android:layout_marginLeft="23dp"
+            android:layout_toRightOf="@+id/imagedetails_comment_input"
+            android:text="Comment" />
+    </RelativeLayout>
 
 </ScrollView>

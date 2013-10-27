@@ -70,11 +70,10 @@ public class SoundMenu {
 		c = a.getBaseContext();
 		
 		SharedPreferences prefs =
-			     a.getPreferences(Context.MODE_MULTI_PROCESS);
+			     a.getPreferences(Context.MODE_PRIVATE);
 			 
 			final SharedPreferences.Editor editor = prefs.edit();
 			
-
 		btnSound1 = (SoundButton) a.findViewById(R.id.btnSound1);
 		btnSound2 = (SoundButton) a.findViewById(R.id.btnSound2);
 		btnSound3 = (SoundButton) a.findViewById(R.id.btnSound3);

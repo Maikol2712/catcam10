@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import app.maikol.catcam.components.ViewPagerDelegate;
 import app.maikol.catcam.delegate.RemoteImageDelegate;
+import app.maikol.catcam.model.Comment;
 import app.maikol.catcam.model.PublicPhoto;
 import app.maikol.catcam.util.HttpConnectionManager;
 
@@ -195,5 +196,17 @@ public class ImagesGrid extends Fragment implements RemoteImageDelegate {
 		Toast.makeText(this.getActivity(), "Error receiving image",  Toast.LENGTH_SHORT);
 		unassignedPhotos.put(error, null);	
 		mAdapter.notifyDataSetChanged();
+	}
+
+	@Override
+	public void didGetComment(int i, Comment comment) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void didFailGetComment(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 }

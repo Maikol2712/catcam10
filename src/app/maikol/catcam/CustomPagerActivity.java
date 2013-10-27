@@ -89,7 +89,7 @@ public class CustomPagerActivity extends FragmentActivity implements
 		};
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mPagerAdapter);
-		mViewPager.setOffscreenPageLimit(2);
+		mViewPager.setOffscreenPageLimit(1);
 
 		mViewPager.setCurrentItem(1, Boolean.FALSE);
 	}
@@ -120,6 +120,8 @@ public class CustomPagerActivity extends FragmentActivity implements
 
 		if (imageFragment == null) {
 			imageFragment = new ItemDetailsFragment();
+		}
+		if (!fragments.contains(imageFragment)){
 			fragments.add(imageFragment);
 			mPagerAdapter.notifyDataSetChanged();
 		}
@@ -127,5 +129,13 @@ public class CustomPagerActivity extends FragmentActivity implements
 
 		imageFragment.setPhoto(publicPhoto);
 
+	}
+
+	@Override
+	public void removeImageDetailsFragment() {
+		if (imageFragment != null){
+			fragments.remove(imageFragment);
+			mPagerAdapter.notifyDataSetChanged();
+		}
 	}
 }
