@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import app.maikol.catcam.components.ViewPagerDelegate;
 import app.maikol.catcam.model.PublicPhoto;
 import app.maikol.catcam.util.HttpConnectionManager;
+import app.maikol.catcam.util.Util;
 
 public class CustomPagerActivity extends FragmentActivity implements
 		ViewPagerDelegate {
@@ -105,7 +106,7 @@ public class CustomPagerActivity extends FragmentActivity implements
 			index = 2;
 			if (operationCode == HttpConnectionManager.CODE_GET_IMAGES_BY_USER) {
 				String user = options.getString("username", "");
-				imagesFragment.getImagesByUser(user);
+				imagesFragment.getImagesByUser(Util.getMyUsername(this));
 			}
 			if (operationCode == HttpConnectionManager.CODE_GET_ALL_IMAGES) {
 				imagesFragment.getAllImages();

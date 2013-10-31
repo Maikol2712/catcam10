@@ -35,6 +35,7 @@ import app.maikol.catcam.model.Comment;
 import app.maikol.catcam.model.Photo;
 import app.maikol.catcam.model.PublicPhoto;
 import app.maikol.catcam.util.HttpConnectionManager;
+import app.maikol.catcam.util.Util;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
@@ -105,11 +106,13 @@ public class CustomGallery extends Fragment implements RemoteImageDelegate{
 
 		String targetPath = ExternalStorageDirectoryPath + "/Catcam/";
 		File targetDirector = new File(targetPath);
-
+		if (targetDirector != null){
 		final File[] filesFromSD = targetDirector.listFiles();
-
+		if (filesFromSD != null){
 		FileLoaderASync fileLoader = new FileLoaderASync();
 		fileLoader.execute(filesFromSD);
+		}
+		}
 		if (imageLoader!= null){
 			imageLoader.destroy();
 		}
@@ -189,7 +192,7 @@ public class CustomGallery extends Fragment implements RemoteImageDelegate{
 //					CustomGallery.this.startActivity(intent);
 
 					
-					HttpConnectionManager.saveImage(photo,mUsername);
+					HttpConnectionManager.saveImage(photo,Util.getMyUsername(CustomGallery.this.getActivity()));
 					return true;
 				}
 			});
@@ -218,12 +221,13 @@ public class CustomGallery extends Fragment implements RemoteImageDelegate{
 		@Override
 		protected Void doInBackground(File[]... arg0) {
 			// int i = 0;
+			if (arg0 != null){
 			 for (File file : arg0[0]) {
 			 // if (i < 10)
 			 photos.add(new Photo(file));
 			 // i++;
 			 }
-			
+			}
 //			HttpConnectionManager.getImageFromId("", imageHandler); 
 
 			return null;
@@ -273,7 +277,7 @@ public class CustomGallery extends Fragment implements RemoteImageDelegate{
     public void setMenuVisibility(final boolean visible) {
         if (!visible) {
         	for (Photo p : photos){
-        		p.getBitmap().recycle();
+        		//p.getBitmap().recycle();
         	}
         }
     }

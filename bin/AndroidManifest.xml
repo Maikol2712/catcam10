@@ -22,7 +22,7 @@
         android:icon="@drawable/iconlast"
         android:label="@string/app_name"
         android:screenOrientation="landscape"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme" >
         <activity
             android:name="MainActivity"
             android:label="@string/app_name"

@@ -20,15 +20,16 @@ public class HttpConnectionManager {
 	
 	public final static int CODE_GET_ALL_IMAGES=0;
 	public final static int CODE_GET_IMAGES_BY_USER=1;
-	public static String BASE_URL = "http://192.168.0.13:2403";
+	public static String BASE_URL = "http://91.117.108.11:2403";
 	public static String PHOTOS_PATH = "/photos";
 	public static String COMMENTS_PATH = "/comments";
 	
+	public static int TIMEOUT = 10000;
 	
 	public static void getAllImages(final RemoteImageDelegate remoteImageDelegate){
 		AsyncHttpClient client = new AsyncHttpClient();
 //		final AsyncHttpResponseHandler imageHandler = remoteImageDelegate;
-		client.setTimeout(1000);
+		client.setTimeout(TIMEOUT);
 		client.get(BASE_URL + PHOTOS_PATH, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(String arg0) {
@@ -65,7 +66,7 @@ public class HttpConnectionManager {
 	
 	public static void getImagesByUser(String user, final RemoteImageDelegate remoteImageDelegate) {
 		AsyncHttpClient client = new AsyncHttpClient();
-		client.setTimeout(1000);
+		client.setTimeout(TIMEOUT);
 		RequestParams params = new RequestParams();
 		params.put("username", user);
 		System.out.println("Requesting image for username:" + user);
@@ -107,7 +108,7 @@ public class HttpConnectionManager {
 	public static void saveImage(Photo photo, String mUsername){
 		System.out.println("Saving image for username:" + mUsername);
 		AsyncHttpClient client = new AsyncHttpClient();
-		client.setTimeout(1000);
+		client.setTimeout(TIMEOUT);
 		RequestParams requestParams = new RequestParams();
 		
 		
@@ -169,7 +170,7 @@ private static Comment getCommentFromJSONElement(JSONObject jsonElement){
 	
 	public static void getCommentsFromPhoto(String imageId, final RemoteImageDelegate remoteImageDelegate){
 		AsyncHttpClient client = new AsyncHttpClient();
-		client.setTimeout(1000);
+		client.setTimeout(TIMEOUT);
 		RequestParams params = new RequestParams();
 		params.put("imageId", imageId);
 		System.out.println("Requesting comments for photo:" + imageId);
@@ -209,7 +210,7 @@ private static Comment getCommentFromJSONElement(JSONObject jsonElement){
 	public static void saveComment(Comment newComment) {
 		System.out.println("Saving comment for commetn:" + newComment.getImageId() + " - " + newComment.getUsername() + " - " + newComment.getComment());
 		AsyncHttpClient client = new AsyncHttpClient();
-		client.setTimeout(1000);
+		client.setTimeout(TIMEOUT);
 		RequestParams requestParams = new RequestParams();
 		
 		

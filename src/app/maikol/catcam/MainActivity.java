@@ -334,10 +334,16 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 			int height) {
 		// TODO Auto-generated method stub
 		try {
-			if (myPreviewRunning) {
-				myCamera.stopPreview();
-				myPreviewRunning = false;
-			}
+			try {
+		        myCamera.stopPreview();
+		        myPreviewRunning = false;
+		    } catch (Exception e){
+		      // ignore: tried to stop a non-existent preview
+		    }
+//			if (myPreviewRunning) {
+//				myCamera.stopPreview();
+//				myPreviewRunning = false;
+//			}
 			Camera.Parameters p = myCamera.getParameters();
 			// p.setPreviewSize(width, height);
 			p = menu.getParameters();
